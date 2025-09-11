@@ -2,204 +2,30 @@
 
 <template>
   <div class="app-container">
-    <!-- Header Section -->
-    <header class="header">
-      <h1 class="main-title">TaskTiger</h1>
-      <p class="subtitle">Ihr intelligenter Assistent für den Alltag</p>
-    </header>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+      <div class="navbar-container">
+        <router-link to="/" class="navbar-brand">
+          <img src="/lion-icon.svg" alt="TaskTiger" class="brand-icon" />
+          <span class="brand-text">TaskTiger</span>
+        </router-link>
 
-    <!-- Hero Section -->
-    <section class="hero">
-      <div class="hero-content">
-        <div class="text-content">
-          <h2 class="hero-title">Verwandeln Sie Ihre Wünsche in echte Hilfe</h2>
-          <p class="hero-description">
-            TaskTiger verbindet Sie mit echten Helfern, die Ihre Aufgaben erledigen. Einfach per
-            Chat anfragen und professionelle Unterstützung erhalten.
-          </p>
-
-          <div class="features">
-            <div class="feature">
-              <div class="feature-icon">🤖</div>
-              <span>KI-gesteuerte Aufgabenerkennung</span>
-            </div>
-            <div class="feature">
-              <div class="feature-icon">👥</div>
-              <span>Echte Helfer in Ihrer Nähe</span>
-            </div>
-            <div class="feature">
-              <div class="feature-icon">⚡</div>
-              <span>Schnelle Aufgabenerledigung</span>
-            </div>
-          </div>
+        <div class="navbar-menu">
+          <a href="#services" class="navbar-item">Dienste</a>
+          <a href="#how-it-works" class="navbar-item">So funktioniert's</a>
+          <a href="#about" class="navbar-item">Über uns</a>
+          <a href="#business" class="navbar-item">Unternehmen</a>
         </div>
 
-        <!-- iPhone Mockup with Download Icons -->
-        <div class="phone-section">
-          <div class="download-buttons">
-            <!-- App Store Button -->
-            <a href="#" class="download-btn app-store">
-              <div class="badge-content">
-                <div class="badge-icon">
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"
-                      fill="white"
-                    />
-                  </svg>
-                </div>
-                <div class="badge-text">
-                  <div class="badge-subtitle">Laden im</div>
-                  <div class="badge-title">App Store</div>
-                </div>
-              </div>
-            </a>
-
-            <!-- Google Play Button -->
-            <a href="#" class="download-btn google-play">
-              <div class="badge-content">
-                <div class="badge-icon">
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.61 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"
-                      fill="#34A853"
-                    />
-                    <path
-                      d="M14.54,11.15L16.81,8.88L20.16,10.81C20.5,11.08 20.75,11.5 20.75,12L17.89,14.5L14.54,11.15Z"
-                      fill="#FBBC04"
-                    />
-                    <path
-                      d="M6.05,21.34L16.81,15.12L14.54,12.85L3.84,21.85C4.25,22.05 4.75,21.99 5.16,21.64L6.05,21.34Z"
-                      fill="#EA4335"
-                    />
-                    <path
-                      d="M6.05,2.66L14.54,11.15L17.89,9.5L20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L3.84,2.15C4.25,1.95 4.75,2.01 5.16,2.36L6.05,2.66Z"
-                      fill="#4285F4"
-                    />
-                  </svg>
-                </div>
-                <div class="badge-text">
-                  <div class="badge-subtitle">Jetzt bei</div>
-                  <div class="badge-title">Google Play</div>
-                </div>
-              </div>
-            </a>
-          </div>
-
-          <div class="iphone-mockup">
-            <div class="iphone-frame">
-              <div class="iphone-screen">
-                <div class="chat-header">
-                  <div class="status-bar">
-                    <span class="time">14:32</span>
-                    <div class="signal-icons">
-                      <span class="signal">📶</span>
-                      <span class="battery">🔋</span>
-                    </div>
-                  </div>
-                  <div class="chat-title">
-                    <h3>TaskTiger</h3>
-                    <span class="online-status">● Online</span>
-                  </div>
-                </div>
-
-                <div class="chat-content">
-                  <div class="message bot-message">
-                    <div class="avatar">🤖</div>
-                    <div class="message-bubble">
-                      Hallo! Wie kann ich Ihnen heute helfen? Ich kann Ihnen bei verschiedenen
-                      Aufgaben vermitteln.
-                    </div>
-                  </div>
-
-                  <div class="message user-message">
-                    <div class="message-bubble">Ich brauche Hilfe beim Umzug am Samstag</div>
-                  </div>
-
-                  <div class="message bot-message">
-                    <div class="avatar">🤖</div>
-                    <div class="message-bubble">
-                      Perfekt! Ich finde Umzugshelfer für Sie. Wie viele Stunden benötigen Sie und
-                      welche Uhrzeit passt Ihnen?
-                    </div>
-                  </div>
-
-                  <div class="message user-message">
-                    <div class="message-bubble">4 Stunden, ab 9:00 Uhr morgens</div>
-                  </div>
-
-                  <div class="message bot-message">
-                    <div class="avatar">🤖</div>
-                    <div class="message-bubble">
-                      Ich habe 2 verfügbare Umzugshelfer gefunden. Soll ich den Termin für Samstag
-                      9:00-13:00 Uhr buchen?
-                    </div>
-                  </div>
-
-                  <div class="helper-cards">
-                    <div class="helper-card">
-                      <div class="helper-info">
-                        <div class="helper-avatar">📦</div>
-                        <div class="helper-details">
-                          <span class="helper-name">Stefan K.</span>
-                          <span class="helper-rating">⭐ 4.8</span>
-                          <span class="helper-time">Sa. 9:00-13:00</span>
-                        </div>
-                      </div>
-                      <button class="contact-btn">Buchen</button>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="chat-input">
-                  <input type="text" placeholder="Nachricht eingeben..." />
-                  <button class="send-btn">📤</button>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div class="navbar-actions">
+          <button class="navbar-btn secondary">Anmelden</button>
+          <router-link to="/signup" class="navbar-btn primary">Registrieren</router-link>
         </div>
       </div>
-    </section>
+    </nav>
 
-    <!-- How it works Section -->
-    <section class="how-it-works">
-      <h2>So einfach funktioniert's</h2>
-      <div class="steps">
-        <div class="step">
-          <div class="step-number">1</div>
-          <h3>Aufgabe beschreiben</h3>
-          <p>Teilen Sie uns einfach mit, wobei Sie Hilfe benötigen</p>
-        </div>
-        <div class="step">
-          <div class="step-number">2</div>
-          <h3>Helfer finden</h3>
-          <p>Unser KI-System findet passende Helfer in Ihrer Nähe</p>
-        </div>
-        <div class="step">
-          <div class="step-number">3</div>
-          <h3>Aufgabe erledigen</h3>
-          <p>Lehnen Sie sich zurück und lassen Sie die Profis arbeiten</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-      <p>&copy; 2025 TaskTiger. Alle Rechte vorbehalten.</p>
-    </footer>
+    <!-- Router View -->
+    <router-view />
   </div>
 </template>
 
@@ -208,6 +34,7 @@ html,
 body {
   margin: 0 !important;
   padding: 0 !important;
+  scroll-behavior: smooth;
 }
 
 #app {
@@ -239,24 +66,137 @@ body {
   padding: 0;
 }
 
-.header {
-  text-align: center;
-  padding: 3rem 1rem;
-  background: #000;
+/* Navbar Styles */
+.navbar {
+  background: white;
+  border-bottom: 1px solid #e5e7eb;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-.main-title {
-  font-size: 3.5rem;
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: #1d1d1f;
+}
+
+.brand-icon {
+  width: 71px;
+  height: 71px;
+}
+
+.brand-text {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1d1d1f;
+}
+
+.navbar-menu {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.navbar-item {
+  color: #1d1d1f;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: color 0.2s ease;
+  padding: 0.5rem 0;
+  position: relative;
+}
+
+.navbar-item:hover {
+  color: #666;
+}
+
+.navbar-item:hover::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #1d1d1f;
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.navbar-btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
   font-weight: 600;
-  color: white;
-  margin-bottom: 0.5rem;
-  letter-spacing: -0.02em;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 2px solid transparent;
 }
 
-.subtitle {
+.navbar-btn.secondary {
+  background: white;
+  color: #1d1d1f;
+  border-color: #e5e7eb;
+}
+
+.navbar-btn.secondary:hover {
+  background: #f9f9f9;
+  border-color: #d1d5db;
+}
+
+.navbar-btn.primary {
+  background: #1d1d1f;
+  color: white;
+}
+
+.navbar-btn.primary:hover {
+  background: #333;
+  transform: translateY(-1px);
+}
+
+/* Hero Header Styles */
+.hero-header {
+  text-align: center;
+  padding: 5rem 2rem 3rem;
+  background: linear-gradient(135deg, #f5f5f7 0%, #e8e8ea 100%);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero-header .main-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #1d1d1f;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.hero-header .subtitle {
   font-size: 1.25rem;
-  color: #a1a1a6;
+  color: #666;
   font-weight: 400;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.5;
 }
 
 .hero {
@@ -667,13 +607,51 @@ body {
 }
 
 @media (max-width: 768px) {
+  .navbar-container {
+    padding: 0 1rem;
+  }
+
+  .navbar-menu {
+    display: none;
+  }
+
+  .navbar-actions {
+    gap: 0.5rem;
+  }
+
+  .navbar-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+  }
+
+  .brand-text {
+    font-size: 1.25rem;
+  }
+
+  .brand-icon {
+    width: 71px;
+    height: 71px;
+  }
+
+  .hero-header {
+    padding: 3rem 1rem 2rem;
+  }
+
+  .hero-header .main-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-header .subtitle {
+    font-size: 1.1rem;
+  }
+
+  .hero {
+    padding: 2rem 1rem;
+  }
+
   .hero-content {
     grid-template-columns: 1fr;
     gap: 2rem;
-  }
-
-  .main-title {
-    font-size: 2.5rem;
   }
 
   .hero-title {
