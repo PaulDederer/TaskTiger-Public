@@ -1,4 +1,6 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import AppFooter from './components/AppFooter.vue'
+</script>
 
 <template>
   <div class="app-container">
@@ -13,8 +15,6 @@
         <div class="navbar-menu">
           <a href="#services" class="navbar-item">Dienste</a>
           <a href="#how-it-works" class="navbar-item">So funktioniert's</a>
-          <a href="#about" class="navbar-item">Über uns</a>
-          <a href="#business" class="navbar-item">Unternehmen</a>
         </div>
 
         <div class="navbar-actions">
@@ -26,6 +26,9 @@
 
     <!-- Router View -->
     <router-view />
+
+    <!-- Footer -->
+    <AppFooter />
   </div>
 </template>
 
@@ -177,7 +180,7 @@ body {
   text-align: center;
   padding: 5rem 2rem 3rem;
   background: linear-gradient(135deg, #f5f5f7 0%, #e8e8ea 100%);
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
 }
 
