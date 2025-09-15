@@ -38,5 +38,5 @@ jobs:
           folder: dist
           token: ${{ secrets.DEPLOY_TOKEN }}
           repository-name: PaulDederer/TaskTiger-Public
-          branch: main
+          branch: master
           clean: true
