@@ -30,16 +30,19 @@
           </ul>
         </div>
 
-        <!-- Support Section -->
-        <div class="footer-section">
-          <h4 class="footer-title">Support</h4>
-          <ul class="footer-links">
-            <li><a href="#hilfe">Hilfe & FAQ</a></li>
-            <li><a href="#kontakt">Kontakt</a></li>
-            <li><a href="#sicherheit">Sicherheit</a></li>
-            <li><a href="#bewertungen">Bewertungen</a></li>
-            <li><a href="#app">Mobile App</a></li>
-          </ul>
+        <!-- Contact Section -->
+        <div class="footer-section" id="kontakt">
+          <h4 class="footer-title">Kontakt</h4>
+          <div class="contact-info">
+            <p class="contact-item">
+              <a href="mailto:contact.me@jpcodelabs.de" class="contact-link">
+                contact.me@jpcodelabs.de
+              </a>
+            </p>
+            <p class="contact-item">
+              <a href="tel:+4915755678283" class="contact-link"> +49 1575 5678283 </a>
+            </p>
+          </div>
         </div>
 
         <!-- Company Section -->
@@ -158,6 +161,28 @@
 }
 
 .footer-links a:hover {
+  color: #f5f5f7;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.contact-item {
+  margin: 0;
+  line-height: 1.4;
+}
+
+.contact-link {
+  color: #86868b;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+}
+
+.contact-link:hover {
   color: #f5f5f7;
 }
 

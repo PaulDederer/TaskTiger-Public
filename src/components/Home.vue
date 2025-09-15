@@ -1,4 +1,12 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { ref } from 'vue'
+
+const openFaq = ref<number | null>(null)
+
+const toggleFaq = (index: number) => {
+  openFaq.value = openFaq.value === index ? null : index
+}
+</script>
 
 <template>
   <div class="home-container">
@@ -14,23 +22,6 @@
     <!-- Hero Section -->
     <section id="services" class="hero">
       <div class="hero-content">
-        <div class="text-content">
-          <div class="features">
-            <div class="feature">
-              <div class="feature-icon">🤖</div>
-              <span>KI-gesteuerte Aufgabenerkennung</span>
-            </div>
-            <div class="feature">
-              <div class="feature-icon">👥</div>
-              <span>Echte Helfer in Ihrer Nähe</span>
-            </div>
-            <div class="feature">
-              <div class="feature-icon">⚡</div>
-              <span>Schnelle Aufgabenerledigung</span>
-            </div>
-          </div>
-        </div>
-
         <!-- iPhone Mockup with Download Icons -->
         <div class="phone-section">
           <div class="download-buttons">
@@ -107,7 +98,10 @@
                     </div>
                   </div>
                   <div class="chat-title">
-                    <h3>TaskTiger</h3>
+                    <div class="chat-brand">
+                      <img src="/lion-icon.svg" alt="TaskTiger" class="chat-logo" />
+                      <h3>TaskTiger</h3>
+                    </div>
                     <span class="online-status">● Online</span>
                   </div>
                 </div>
@@ -153,9 +147,10 @@
                           <span class="helper-name">Stefan K.</span>
                           <span class="helper-rating">⭐ 4.8</span>
                           <span class="helper-time">Sa. 9:00-13:00</span>
+                          <span class="helper-price">17€/Std.</span>
                         </div>
                       </div>
-                      <button class="contact-btn">Buchen</button>
+                      <router-link to="/signup" class="contact-btn">Buchen</router-link>
                     </div>
                   </div>
                 </div>
@@ -166,6 +161,48 @@
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Cards Section -->
+    <section class="features-section">
+      <div class="features-container">
+        <div class="feature tasktiger-card">
+          <div class="feature-image">
+            <img src="/Aufgabenerkennung.png" alt="KI-gesteuerte Aufgabenerkennung" />
+          </div>
+          <div class="feature-content">
+            <h3 class="feature-title">KI-gesteuerte Aufgabenerkennung</h3>
+            <p class="feature-description">
+              Unsere künstliche Intelligenz analysiert Ihre Anfrage und findet automatisch die
+              passenden Helfer für Ihre spezifische Aufgabe.
+            </p>
+          </div>
+        </div>
+        <div class="feature tasktiger-card">
+          <div class="feature-image">
+            <img src="/EchteHelfer.png" alt="Echte Helfer in Ihrer Nähe" />
+          </div>
+          <div class="feature-content">
+            <h3 class="feature-title">Echte Helfer in Ihrer Nähe</h3>
+            <p class="feature-description">
+              Verbinden Sie sich mit verifizierten und bewerteten Helfern in Ihrer unmittelbaren
+              Umgebung für schnelle Unterstützung.
+            </p>
+          </div>
+        </div>
+        <div class="feature tasktiger-card">
+          <div class="feature-image">
+            <img src="/SchnelleAufgabenerledigung.png" alt="Schnelle Aufgabenerledigung" />
+          </div>
+          <div class="feature-content">
+            <h3 class="feature-title">Schnelle Aufgabenerledigung</h3>
+            <p class="feature-description">
+              Erleben Sie effiziente und professionelle Hilfe, die Ihre Aufgaben schnell und
+              zuverlässig erledigt.
+            </p>
           </div>
         </div>
       </div>
@@ -193,10 +230,105 @@
       </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-      <p>&copy; 2025 TaskTiger. Powered by JP Codelabs GmbH.</p>
-    </footer>
+    <!-- FAQ Section -->
+    <section id="faq" class="faq-section">
+      <h2>Häufige Fragen</h2>
+      <p class="faq-subtitle">
+        Alles, was Sie über
+        <span class="tasktiger-inline">
+          <img src="/lion-icon.svg" alt="TaskTiger" class="inline-logo" />
+          TaskTiger
+        </span>
+        wissen möchten.
+      </p>
+      <div class="faq-container">
+        <div class="faq-item" @click="toggleFaq(0)">
+          <div class="faq-question">
+            <h3>In welchen Bereichen können Helfer vermittelt werden?</h3>
+            <span class="faq-icon" :class="{ open: openFaq === 0 }">+</span>
+          </div>
+          <div class="faq-answer" :class="{ open: openFaq === 0 }">
+            <p>
+              TaskTiger vermittelt Helfer für eine Vielzahl von Aufgaben: Umzugshilfe, Reinigung,
+              Gartenarbeit, Handwerkerarbeiten, Möbelmontage, Einkaufsservice und vieles mehr.
+              Unsere KI analysiert Ihre Anfrage und findet passende Experten in Ihrer Nähe.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item" @click="toggleFaq(1)">
+          <div class="faq-question">
+            <h3>Wie funktioniert die Preisgestaltung?</h3>
+            <span class="faq-icon" :class="{ open: openFaq === 1 }">+</span>
+          </div>
+          <div class="faq-answer" :class="{ open: openFaq === 1 }">
+            <p>
+              Die Preise werden transparent angezeigt und richten sich nach Art der Aufgabe, Dauer
+              und Expertise des Helfers. Sie sehen den Stundensatz bereits vor der Buchung. Es gibt
+              keine versteckten Kosten - was Sie sehen, ist was Sie zahlen.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item" @click="toggleFaq(2)">
+          <div class="faq-question">
+            <h3>Wie werden die Helfer überprüft?</h3>
+            <span class="faq-icon" :class="{ open: openFaq === 2 }">+</span>
+          </div>
+          <div class="faq-answer" :class="{ open: openFaq === 2 }">
+            <p>
+              Alle Helfer durchlaufen einen Verifizierungsprozess mit Identitätsprüfung, Referenzen
+              und Bewertungen. Zusätzlich bewertet unsere Community jeden Helfer nach erledigten
+              Aufgaben, sodass Sie immer qualifizierte Unterstützung erhalten.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item" @click="toggleFaq(3)">
+          <div class="faq-question">
+            <h3>Was passiert wenn ich mit dem Service unzufrieden bin?</h3>
+            <span class="faq-icon" :class="{ open: openFaq === 3 }">+</span>
+          </div>
+          <div class="faq-answer" :class="{ open: openFaq === 3 }">
+            <p>
+              Ihre Zufriedenheit steht an erster Stelle. Bei Problemen kontaktieren Sie unseren
+              Support innerhalb von 24 Stunden. Wir bieten eine Zufriedenheitsgarantie und werden
+              gemeinsam eine Lösung finden - notfalls mit einer Rückerstattung. Unzuverlässigkeit
+              oder schlechte Arbeit des Helfers können zum Ausschluss von der Plattform führen.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item" @click="toggleFaq(4)">
+          <div class="faq-question">
+            <h3>Wie schnell finde ich einen verfügbaren Helfer?</h3>
+            <span class="faq-icon" :class="{ open: openFaq === 4 }">+</span>
+          </div>
+          <div class="faq-answer" :class="{ open: openFaq === 4 }">
+            <p>
+              Dank unserer KI-gesteuerten Vermittlung finden wir meist innerhalb weniger Minuten
+              passende Helfer. Für spontane Anfragen haben wir oft Helfer verfügbar, die noch am
+              selben Tag Zeit haben. Bei größeren Projekten empfehlen wir eine Vorlaufzeit von 1-2
+              Tagen.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item" @click="toggleFaq(5)">
+          <div class="faq-question">
+            <h3>Ist TaskTiger versichert?</h3>
+            <span class="faq-icon" :class="{ open: openFaq === 5 }">+</span>
+          </div>
+          <div class="faq-answer" :class="{ open: openFaq === 5 }">
+            <p>
+              Ja, alle über TaskTiger vermittelten Aufgaben sind durch unsere Partnerversicherung
+              abgedeckt. Dies schützt sowohl Sie als Auftraggeber als auch den Helfer bei
+              eventuellen Schäden während der Aufgabenausführung.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 </template>
 
@@ -222,8 +354,7 @@
   text-align: center;
   padding: 5rem 2rem 3rem;
   background: linear-gradient(135deg, #f5f5f7 0%, #e8e8ea 100%);
-  max-width: 1200px;
-  margin: 0 auto;
+  width: 100%;
 }
 
 .main-title {
@@ -252,10 +383,10 @@
 }
 
 .hero-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+  display: flex;
+  justify-content: center;
   align-items: center;
+  min-height: 600px;
 }
 
 .text-content {
@@ -268,24 +399,66 @@
   gap: 1.5rem;
 }
 
-.feature {
+.tasktiger-card {
   display: flex;
-  align-items: center;
-  gap: 1rem;
-  font-size: 1.1rem;
-  color: #1d1d1f;
-  font-weight: 400;
+  flex-direction: column;
+  background: white;
+  border-radius: 20px;
+  padding: 0;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 1px solid #f0f0f0;
+  min-height: 350px;
+  flex: 1;
+  overflow: hidden;
 }
 
-.feature-icon {
-  font-size: 1.5rem;
-  width: 2.5rem;
-  height: 2.5rem;
+.tasktiger-card:hover {
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.15);
+  transform: translateY(-4px);
+  border-color: #e0e0e0;
+}
+
+.feature-image {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #f2f2f2;
-  border-radius: 50%;
+  background: #f8f9fa;
+}
+
+.feature-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.feature-content {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1;
+}
+
+.feature-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1d1d1f;
+  margin: 0 0 1rem 0;
+  line-height: 1.3;
+}
+
+.feature-description {
+  font-size: 1.1rem;
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+  font-weight: 400;
 }
 
 .phone-section {
@@ -425,6 +598,17 @@
   gap: 0.5rem;
 }
 
+.chat-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.chat-logo {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
 .chat-title h3 {
   font-size: 1.1rem;
   font-weight: 600;
@@ -522,6 +706,12 @@
   font-size: 0.75rem;
   color: #000;
   font-weight: 500;
+}
+
+.helper-price {
+  font-size: 0.75rem;
+  color: #007aff;
+  font-weight: 600;
 }
 
 .contact-btn {
@@ -625,6 +815,133 @@
   font-weight: 400;
 }
 
+.faq-section {
+  background: #f5f5f7;
+  padding: 5rem 2rem;
+  text-align: center;
+}
+
+.faq-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  color: #1d1d1f;
+  letter-spacing: -0.003em;
+}
+
+.faq-subtitle {
+  font-size: 1.1rem;
+  color: #86868b;
+  margin-bottom: 3rem;
+  font-weight: 400;
+}
+
+.tasktiger-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.inline-logo {
+  width: 1rem;
+  height: 1rem;
+  vertical-align: middle;
+}
+
+.faq-container {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.faq-item {
+  background: white;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+
+.faq-item:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.faq-question {
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.faq-question:hover {
+  background: #f8f9fa;
+}
+
+.faq-question h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1d1d1f;
+  margin: 0;
+  flex: 1;
+  padding-right: 1rem;
+}
+
+.faq-icon {
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: #666;
+  transition: transform 0.3s ease;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #f5f5f7;
+}
+
+.faq-icon.open {
+  transform: rotate(45deg);
+  background: #000;
+  color: white;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition:
+    max-height 0.4s ease,
+    padding 0.4s ease;
+}
+
+.faq-answer.open {
+  max-height: 300px;
+  padding: 0 2rem 1.5rem;
+}
+
+.faq-answer p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #666;
+  margin: 0;
+}
+
+.features-section {
+  background: #f5f5f7;
+  padding: 4rem 2rem;
+}
+
+.features-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+}
+
 .footer {
   background: #f5f5f7;
   border-top: 1px solid #d2d2d7;
@@ -652,8 +969,8 @@
   }
 
   .hero-content {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+    flex-direction: column;
+    min-height: 400px;
   }
 
   .iphone-frame {
@@ -669,6 +986,51 @@
   .steps {
     grid-template-columns: 1fr;
     gap: 2rem;
+  }
+
+  .faq-section {
+    padding: 3rem 1rem;
+  }
+
+  .faq-section h2 {
+    font-size: 2rem;
+  }
+
+  .faq-question {
+    padding: 1rem 1.5rem;
+  }
+
+  .faq-answer.open {
+    padding: 0 1.5rem 1rem;
+  }
+
+  .faq-question h3 {
+    font-size: 1rem;
+  }
+
+  .features-container {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .tasktiger-card {
+    min-height: 400px;
+  }
+
+  .feature-image {
+    height: 200px;
+  }
+
+  .feature-content {
+    padding: 1.5rem;
+  }
+
+  .feature-title {
+    font-size: 1.4rem;
+  }
+
+  .feature-description {
+    font-size: 1rem;
   }
 }
 </style>

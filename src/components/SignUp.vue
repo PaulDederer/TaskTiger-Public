@@ -26,7 +26,7 @@ const handleSubmit = async () => {
       <div class="signup-content">
         <div v-if="!isSubmitted" class="signup-form-container">
           <div class="signup-header">
-            <h1 class="signup-title">Treten Sie der TaskTiger Warteliste bei</h1>
+            <h1 class="signup-title">Hier können Sie Interesse an TaskTiger anmelden.</h1>
             <p class="signup-subtitle">
               Seien Sie unter den Ersten, die TaskTiger erleben, wenn wir starten. Erhalten Sie
               exklusiven frühen Zugang und besondere Vorteile.
@@ -58,8 +58,8 @@ const handleSubmit = async () => {
             </div>
 
             <button type="submit" :disabled="!email || isSubmitting" class="submit-btn">
-              <span v-if="isSubmitting">Der Warteliste beitreten...</span>
-              <span v-else>Der Warteliste beitreten</span>
+              <span v-if="isSubmitting">Interesse anmelden beitreten...</span>
+              <span v-else>Interesse anmelden</span>
             </button>
           </form>
 

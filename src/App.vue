@@ -15,10 +15,11 @@ import AppFooter from './components/AppFooter.vue'
         <div class="navbar-menu">
           <a href="#services" class="navbar-item">Dienste</a>
           <a href="#how-it-works" class="navbar-item">So funktioniert's</a>
+          <a href="#kontakt" class="navbar-item">Kontakt</a>
         </div>
 
         <div class="navbar-actions">
-          <button class="navbar-btn secondary">Anmelden</button>
+          <router-link to="/signup" class="navbar-btn secondary">Registrieren</router-link>
           <router-link to="/signup" class="navbar-btn primary">Registrieren</router-link>
         </div>
       </div>
