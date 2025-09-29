@@ -1,4 +1,6 @@
 User-agent: *
+Disallow: /impressum
+Disallow: /datenschutz
 Allow: /
 
 # Sitemap
